@@ -12,5 +12,5 @@ let topCharts3 = JSON.parse(data3);
 let topCharts = JSON.parse(data);  
 use('test');
 
-db.newdata.insertOne (topCharts3);
+db.newdata.insertMany ([{topCharts},{topCharts1},{topCharts2},{topCharts3}]);
 
