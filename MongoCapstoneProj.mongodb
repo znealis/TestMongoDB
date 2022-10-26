@@ -2,7 +2,7 @@
 // Select the database to use.
 const fs = require('fs');
 
-let shazaam = fs.readFileSync('Shazaam.json');
+let shazaam1 = fs.readFileSync('shazaam.json');
 let data2 = fs.readFileSync('data2.json');
 let data3 = fs.readFileSync('data3.json');
 let data = fs.readFileSync('data.json');  

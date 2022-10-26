@@ -17,13 +17,13 @@ export let dataHolder = [];
     fetch(endpoint, options)
         .then(response => response.json())
         .then(data => JSON.stringify(data, null, 4))
-        .then(data => writeFileSync('Shazaam.json', data))
+        .then(data => writeFileSync('shazaam.json', data))
         
 //.then(response => console.log(response))
     .catch(err => console.error(err));
 
     
         
-console.log("data1.json")
+console.log("shazaam.json")
 console.log("new")
 
