@@ -1,3 +1,4 @@
+
 import fetch from 'node-fetch';
 import { writeFileSync } from 'fs';
 
@@ -16,7 +17,7 @@ export let dataHolder = [];
     fetch(endpoint, options)
         .then(response => response.json())
         .then(data => JSON.stringify(data, null, 4))
-        .then(data => writeFileSync('data1.json', data))
+        .then(data => writeFileSync('Shazaam.json', data))
         
 //.then(response => console.log(response))
     .catch(err => console.error(err));
@@ -25,3 +26,4 @@ export let dataHolder = [];
         
 console.log("data1.json")
 console.log("new")
+
