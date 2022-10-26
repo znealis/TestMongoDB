@@ -1,0 +1,12 @@
+// MongoDB Playground
+// Select the database to use.
+const fs = require('fs');
+
+let data1 = fs.readFileSync('data1.json');  
+let data = fs.readFileSync('data.json');  
+let topCharts1 = JSON.parse(data1);
+let topCharts = JSON.parse(data);  
+use('test');
+
+db.newdata.insertOne (topCharts1);
+
