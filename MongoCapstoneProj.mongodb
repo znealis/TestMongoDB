@@ -2,11 +2,15 @@
 // Select the database to use.
 const fs = require('fs');
 
-let data1 = fs.readFileSync('data1.json');  
+let data1 = fs.readFileSync('data1.json');
+let data2 = fs.readFileSync('data2.json');
+let data3 = fs.readFileSync('data3.json');
 let data = fs.readFileSync('data.json');  
 let topCharts1 = JSON.parse(data1);
+let topCharts2 = JSON.parse(data2);
+let topCharts3 = JSON.parse(data3);
 let topCharts = JSON.parse(data);  
 use('test');
 
-db.newdata.insertOne (topCharts1);
+db.newdata.insertOne (topCharts3);
 
