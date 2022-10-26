@@ -7,7 +7,8 @@
   "main": "Dezzer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx node index.cjs"
+    "start": "npx node ./pages/index.cjs",
+    "dev": "npx nodemon ./pages/index.cjs"
   },
   "author": "",
   "type": "module",
