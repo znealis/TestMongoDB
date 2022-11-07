@@ -1,20 +1,32 @@
 const {MongoClient} = require('mongodb');
-const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
 
-const connect = async () => {
+async function connect() {
+
+    const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
     try {
 
-        console.log(" # Connecting to database server ...")
-        const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })
-        console.log("# Connected")
-        return client
+        console.log(" # Connecting to database server ...");
+        await client.connect();
+        console.log("# Connected");
+        await listDatabases(client);
 
     }
     catch(err){
-        console.error("# Database connection error")
-        throw err
+        console.error("# Database connection error", err);
     }
-}
+    finally {
+        // Close the connection to the MongoDB cluster
+        await client.close();
+    }
 
-module.exports = connect;
+    connect().catch(console.error);
+
+    async function listDatabases(client){
+        databasesList = await client.db().admin().listDatabases();
+     
+        console.log("Databases:");
+        databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+    };
+}
