@@ -1,4 +1,4 @@
-import {MongoClient} from 'mongodb';
+const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
 
 const connect = async () => {
