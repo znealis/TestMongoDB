@@ -3,7 +3,7 @@ const {MongoClient} = require('mongodb');
 async function connect() {
 
     const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    const client = new MongoClient(uri);
 
     try {
 
@@ -21,12 +21,13 @@ async function connect() {
         await client.close();
     }
 
-    connect().catch(console.error);
-
-    async function listDatabases(client){
-        databasesList = await client.db().admin().listDatabases();
-     
-        console.log("Databases:");
-        databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-    };
 }
+
+async function listDatabases(client){
+    databasesList = await client.db().admin().listDatabases();
+ 
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
+
+connect().catch(console.error);
