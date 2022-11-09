@@ -1,9 +1,14 @@
 const {MongoClient} = require('mongodb');
 
+
 async function connect() {
 
     const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
+
+    const db = client.db("test");
+    const coll = db.collection("newdata");
+    
 
     try {
 
@@ -11,6 +16,11 @@ async function connect() {
         await client.connect();
         console.log("# Connected");
         await listDatabases(client);
+        const db = client.db("test");
+        const coll = db.collection("newdata");
+        const artistExample = coll.find({ "results.artistName": { $eq:'Miley Cyrus'}});
+        await artistExample.forEach(console.log);
+        await artistExample.forEach(name => console.log(` -${name.results}`));
 
     }
     catch(err){
@@ -30,4 +40,4 @@ async function listDatabases(client){
     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
 
-connect().catch(console.error);
+connect().catch(console.dir);
