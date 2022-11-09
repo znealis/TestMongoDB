@@ -12,7 +12,8 @@ headers: {
 let url = 'https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=multi&offset=0&limit=10&numberOfTopResults=5';
 
 
-fetch(url)
+fetch(url, options)
             .then(response => response.json())
             .then(data => JSON.stringify(data, null, 4))
-            .then(data => writeFileSync('data3.json', data));
+            .then(data => writeFileSync('data3.json', data))
+            .catch(err => console.error(err));

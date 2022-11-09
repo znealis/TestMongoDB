@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+
+<html>
+    
+    <script type="module" src="./main.js"></script>
+
+    <script type="module" src="./alarm.js"></script>
+    <style>
+        .Goal{
+            align-items: center;
+        } 
+        footer {
+        text-align: center;
+        padding: 3px;
+        color: white;
+        font-family:monaco;
+       
+     }
+     p{
+         color: white;
+     }
+     body{
+        background: radial-gradient(#993955, #E9ECF5);
+    }
+
+        .Headers{
+            color:white;
+            justify-content:  center;
+            align-items: center;
+            text-align: center;
+            font-size: 40px;
+
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+        }
+        .grid-item {
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+
+        li{
+        float:left;
+    }
+
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: monaco;
+    }
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+  
+
+
+    .navbarButton:hover{
+        font-family: monaco;
+        transition: all linear .5s;
+        background-color: rgb(4, 24, 0);
+        color:rgb(255, 255, 255);
+        border-radius: 5%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+   
+    }
+
+     
+    .about{
+            justify-content:  center;
+            align-items: center;
+            text-align: center;
+        }
+        .Headers{
+            color:white;
+            justify-content:  center;
+            align-items: center;
+            text-align: center;
+            font-size: 40px;
+
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+        }
+        .grid-item {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .navbarContainer{
+        padding-top:5px;  
+        padding-bottom: 5px; 
+        align-items: center; 
+        justify-content: center;
+        text-align: center;
+        background-color: rgb(255, 225, 225);
+        padding-left:5vw;
+        padding-right:5vw;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:35px; 
+      
+        }
+
+        .navbarButton:hover{
+            transition: all linear .5s;
+            background-color: rgb(4, 24, 0);
+            color:rgb(255, 255, 255);
+            border-radius: 5%;
+        }     
+        body {
+            font-family: monaco;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #current-time {
+            font-size: 32px;
+            color:white;
+        }
+        #current-time,
+        .create-alarm,
+        #active-alarm {
+            color:white;
+            text-align: center;
+        }
+        .create-alarm,
+        .alarm-inputs,
+        #active-alarm {
+            margin-top: 20px;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+            color:white;
+        }
+        .alarm-inputs,
+        #alarm-text {
+            margin-bottom: 30px;
+            color:white;
+        }
+        button {
+            font-size: 18px;
+        }
+        #active-alarm {
+            display: none;
+        }
+        
+        .textInputClass{
+            color:black
+        }
+        
+    </style>
+        <div>
+          
+            <div class="navbarContainer" id="navbarContainer">
+                <li><a class="active" href="/" id="Home">Home</a></li>
+                <li><a href="DeeZer.html" id="deeZer">DeeZer</a></li>
+                <li><a href="GoalTracker.html" id="GoalTracker">Musi</a></li>
+                <li><a href="Shazam.html" id="shazam">ShaZam</a>
+                <li><a href="Itunes.html" id="itunes">Itunes</a></li>   
+                <li><a href="ADB.html" id="adb">ADB</a></li>    
+            </div>
+    
+            <div>
+        
+                <h1 class="Headers" id="alarm-header">Musi</h1>
+    
+               
+                <div class="grid-container" id="grid">
+                     <div class="grid-item">
+                    
+                        <div>
+                        </div>
+                    
+                </div>
+                    
+                    <div class="grid-item">
+                                          
+    
+                    </div>
+                  
+                </div>
+            </div>
+        
+        
+            <h1 class = "Headers">Goal Tracker</h1>
+           
+        
+            <br>
+
+        
+    
+    </div>
+    <footer>
+        <p>Christina Zimmer<br>
+            <a href="mailto:zimmer64students.rowan.edu">crzimmer1@gmail.com</a></p>
+        <p>Nicole Amoah<br>
+            <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p>
+        <p>John Doyle<br>
+             <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p>
+        <p>Zachary Nealis<br>
+             <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p>
+       </footer>
+</html>
