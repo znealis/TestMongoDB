@@ -19,11 +19,18 @@ async function connect() {
         const db = client.db("test");
         const coll = db.collection("newdata");
         const artistExample = coll.find({ "results.artistName": { $eq:'Miley Cyrus'}});
+        const artistExample1 = coll.aggregate([{$unwind: '$topCharts.data'},
+                                                {$match: {'topCharts.data.title' : "God's Plan"}}]);
+     
+
+
         await artistExample.forEach(console.log);
-        await artistExample.forEach(name => console.log(` -${name.results}`));
+        console.log("Example 1");
+        await artistExample1.forEach(console.log);
 
     }
     catch(err){
+
         console.error("# Database connection error", err);
     }
     finally {
