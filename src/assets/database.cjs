@@ -22,15 +22,17 @@ async function connect() {
                                                 {$match: {'results.artistName' : 'Hannah Montana'}},
                                                 {$project: {'_id': 0, 'results.artistName': 1, 'results.trackName': 1,}}]);
 
-        const artistExample1 = coll.aggregate([{$unwind: '$topCharts.data'},
+        const searchBySong = coll.aggregate([{$unwind: '$topCharts.data'},
                                                 {$match: {'topCharts.data.title' : "God's Plan"}},
-                                                {$group: {'_id': null, 'songDetails': {$push:{'title': '$topCharts.data.title',
-                                                                                                'artist': '$topCharts.data.artist.name',
-                                                                                                'album': '$topCharts.data.album.title',
-                                                                                                'albumCover': '$topCharts.data.album.cover',
-                                                                                                'preview': '$topCharts.data.preview', 
-                                                                                                'Link': '$topCharts.data.link',
-                                                                                                'mediumPicture': '$topCharts.data.artist.picture_medium'}}}},
+                                                {$group: {'_id': null, 'songDetails': {$push:{
+                                                    'title': '$topCharts.data.title',
+                                                    'artist': '$topCharts.data.artist.name',
+                                                    'album': '$topCharts.data.album.title',
+                                                    'albumCover': '$topCharts.data.album.cover',
+                                                    'preview': '$topCharts.data.preview', 
+                                                    'Link': '$topCharts.data.link',
+                                                    'mediumPicture': '$topCharts.data.artist.picture_medium'}}
+                                                }},
                                                 {$project:{
                                                     'songDetails' : 1,
                                                     '_id': 0,
@@ -41,7 +43,7 @@ async function connect() {
 
         await artistExample.forEach(console.log);
         console.log("Example 1");
-        await artistExample1.forEach(console.log);
+        await searchBySong.forEach(console.log);
 
 
 
