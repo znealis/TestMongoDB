@@ -8,23 +8,8 @@
             <li><a href="john.ejs" id="john">Itunes</a></li>   
             <li><a href="zach.ejs" id="zach">Youtube</a></li>   
         </div>
-        
-        
-        <h1 class="Headers" id="adb-header">ADB API </h1>
+        <h1 class="Headers" id="itunes-header">Itunes </h1>
       
-        <p>Zach Output.</p>
-        <ul>
-            <% for(var i = 0; i < results.length; i++) {%>
-                
-                <li>
-                    
-                    <span><%= results[i].songs.artist %></span>
-                    <span><%= results[i].songs.track %></span>
-                    
-                    
-                </li>
-            <%} %>
-        </ul>
 
         <h1>Shazaam</h1>
         <p></p>
@@ -51,6 +36,19 @@
         <h1>Itunes Data</h1>
         <h1>Spotify</h1>
 
+        <p>Zach Output.</p>
+        <ul>
+            <% for(var i = 0; i < results.length; i++) {%>
+                
+                <li>
+                    
+                    <span><%= results[i].songs.artist %></span>
+                    <span><%= results[i].songs.track %></span>
+                    
+                    
+                </li>
+            <%} %>
+        </ul>
     </body>
     <footer>
         <p>Christina Zimmer<br>

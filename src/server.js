@@ -23,9 +23,56 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
             .then(results => {
                 console.log(unwind(results, 'songs'))
                 res.render('index.ejs', {results: unwind(results, 'songs')})
-            })
-            
+            })      
+         })
+
+    app.get('/christina', (req, res) => {
+        db.collection('newdata').aggregate([{ $unwind: '$results'},
+        {$match: {'results.artistName' : 'Drake'}},
+        {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
+        {$project: {'_id': 0, 'songs': 1}}]).toArray()
+
+        .then(results => {
+            console.log(unwind(results, 'songs'))
+            res.render('christina.ejs', {results: unwind(results, 'songs')})
+        })
     })
+        app.get('/nicole', (req, res) => {
+            db.collection('newdata').aggregate([{ $unwind: '$results'},
+            {$match: {'results.artistName' : 'Daft Punk'}},
+            {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
+            {$project: {'_id': 0, 'songs': 1}}]).toArray()
+
+            .then(results => {
+                console.log(unwind(results, 'songs'))
+                res.render('nicole.ejs', {results: unwind(results, 'songs')})
+            })
+        })
+            app.get('/john', (req, res) => {
+                db.collection('newdata').aggregate([{ $unwind: '$results'},
+                {$match: {'results.artistName' : 'Avenged'}},
+                {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
+                {$project: {'_id': 0, 'songs': 1}}]).toArray()
+    
+                .then(results => {
+                    console.log(unwind(results, 'songs'))
+                    res.render('john.ejs', {results: unwind(results, 'songs')})
+                })
+            })
+                app.get('/zach', (req, res) => {
+                    db.collection('newdata').aggregate([{ $unwind: '$results'},
+                    {$match: {'results.artistName' : 'Hannah Montana'}},
+                    {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
+                    {$project: {'_id': 0, 'songs': 1}}]).toArray()
+        
+                    .then(results => {
+                        console.log(unwind(results, 'songs'))
+                        res.render('zach.ejs', {results: unwind(results, 'songs')})
+                    })
+                })
+
+
+
 
     app.listen(5000, function(){
         console.log('listening on 5000')

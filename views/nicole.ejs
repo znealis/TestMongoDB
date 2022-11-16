@@ -12,21 +12,6 @@
         
         <h1 class="Headers" id="adb-header">ADB API </h1>
       
-        <p>Zach Output.</p>
-        <ul>
-            <% for(var i = 0; i < results.length; i++) {%>
-                
-                <li>
-                    
-                    <span><%= results[i].songs.artist %></span>
-                    <span><%= results[i].songs.track %></span>
-                    
-                    
-                </li>
-            <%} %>
-        </ul>
-
-        <h1>Shazaam</h1>
         <p></p>
    
         <!-- <div class="grid-container">
@@ -49,8 +34,21 @@
         </div> -->
             
         <h1>Itunes Data</h1>
-        <h1>Spotify</h1>
+       
 
+        <p>Zach Output.</p>
+        <ul>
+            <% for(var i = 0; i < results.length; i++) {%>
+                
+                <li>
+                    
+                    <span><%= results[i].songs.artist %></span>
+                    <span><%= results[i].songs.track %></span>
+                    
+                    
+                </li>
+            <%} %>
+        </ul>
     </body>
     <footer>
         <p>Christina Zimmer<br>
@@ -62,4 +60,5 @@
         <p>Zachary Nealis<br>
              <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p>
    </footer>
+</div>
 </HTML>
