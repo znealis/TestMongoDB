@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+  
+    <body>
+
+        <h1>Shazaam</h1>
+        <!-- <div class="grid-container">
+            <div class="grid-item" >
+                <form action="">
+                    <div class="search-shazaam">
+                        <label for="">Search For An Artist To Get Their Info</label>
+                        <input type="text" placeholder="search for music" id="search-input-shazaam">
+                    </div>
+                    <div class="button">
+                        <button id="search-shazaam">search</button>
+                    </div>
+
+                    <div class="display-music-shazaam"></div>
+                    <div class="data-holder-shazaam" id="data-holder-shazaam" style="background-color: pink;">Data
+                        <p id="data-holder-shazaam"></p>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+            
+        <h1>Itunes Data</h1>
+        <h1>Spotify</h1>
+
+        <p>My paragraph.</p>
+        <ul>
+            <% for(var i = 0; i < results.length; i++) {%>
+                
+                <li>
+                    
+                    <span><%= results[i].songs.artist %></span>
+                    <span><%= results[i].songs.track %></span>
+                    
+                    
+                </li>
+            <%} %>
+        </ul>
+    </body>
+</HTML>

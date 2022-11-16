@@ -1,45 +1,34 @@
-
-import { ObjectId } from "mongodb";
-const dbName = "test"
-const coll = "newdata"
-const {MongoClient} = require('mongodb');
-const path = require('path'); 
-const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient
+const unwind = require('javascript-unwind');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 5000;
 const fs = require('fs');
 
-let db
 
-async function connect() {
+const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
+let storeData = [];
+MongoClient.connect(uri, { useUnifiedTopology: true})
+    .then(client => {
+        console.log('Connected to Database')
+        const db = client.db('test')
 
-    const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
-    const client = new MongoClient(uri);
+        app.set('view ejs', 'ejs')
 
-    try {
+        app.get('/', (req, res) => {
+            db.collection('newdata').aggregate([{ $unwind: '$results'},
+            {$match: {'results.artistName' : 'Hannah Montana'}},
+            {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
+            {$project: {'_id': 0, 'songs': 1}}]).toArray()
 
-        console.log(" # Connecting to database server ...");
-        await client.connect();
-        console.log("# Connected");
-        await listDatabases(client);
+            .then(results => {
+                console.log(unwind(results, 'songs'))
+                res.render('index.ejs', {results: unwind(results, 'songs')})
+            })
+            
+    })
 
-    }
-    catch(err){
-        console.error("# Database connection error", err);
-    }
-    finally {
-        // Close the connection to the MongoDB cluster
-        await client.close();
-    }
+    app.listen(5000, function(){
+        console.log('listening on 5000')
+    })
+})
 
-}
-
-async function listDatabases(client){
-    databasesList = await client.db().admin().listDatabases();
- 
-    console.log("Databases:");
-    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
-
-connect().catch(console.error);
