@@ -17,9 +17,10 @@
             <% for(var i = 0; i < results.length; i++) {%>
                 
                 <li>
-                    
-                    <span><%= results[i].songs.artist %></span>
-                    <span><%= results[i].songs.track %></span>
+                    <span><%= results[i].songDetails.title %><br></span>
+                    <span><%= results[i].songDetails.artist %><br></span>
+                    <span><%= results[i].songDetails.album %><br></span>
+                    <span><%= results[i].songDetails.albumCover %><br></span>
                     
                     
                 </li>
