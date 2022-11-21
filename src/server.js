@@ -26,38 +26,12 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
             })      
          })
 
-    app.get('/christina.ejs', (req, res) => {
-        db.collection('newdata').aggregate([{ $unwind: '$results'},
-        {$match: {'results.artistName' : 'Drake'}},
-        {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
-        {$project: {'_id': 0, 'songs': 1}}]).toArray()
 
-        .then(results => {
-            console.log(unwind(results, 'songs'))
-            res.render('christina.ejs', {results: unwind(results, 'songs')})
-        })
-    })
         app.get('/nicole.ejs', (req, res) => {
-            db.collection('newdata').aggregate([{ $unwind: '$results'},
-            {$match: {'results.artistName' : 'Daft Punk'}},
-            {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
-            {$project: {'_id': 0, 'songs': 1}}]).toArray()
-
-            .then(results => {
-                console.log(unwind(results, 'songs'))
-                res.render('nicole.ejs', {results: unwind(results, 'songs')})
-            })
+            res.render('nicole.ejs')
         })
             app.get('/john.ejs', (req, res) => {
-                db.collection('newdata').aggregate([{ $unwind: '$results'},
-                {$match: {'results.artistName' : 'Avenged'}},
-                {$group: {'_id': null, 'songs': {$push: {'artist': '$results.artistName', 'track': '$results.trackName'}}}},
-                {$project: {'_id': 0, 'songs': 1}}]).toArray()
-    
-                .then(results => {
-                    console.log(unwind(results, 'songs'))
-                    res.render('john.ejs', {results: unwind(results, 'songs')})
-                })
+                res.render('john.ejs')
             })
                 app.get('/zach.ejs', (req, res) => {
                     db.collection('newdata').aggregate([{$unwind: '$topCharts.data'},
@@ -83,7 +57,10 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
                 })
 
 
-
+                app.get('/christina.ejs', (req, res) => {
+                        res.render('christina.ejs')
+                    })
+               
 
     app.listen(5000, function(){
         console.log('listening on 5000')
