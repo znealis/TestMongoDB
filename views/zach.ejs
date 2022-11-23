@@ -6,11 +6,11 @@
             <li><a href="christina.ejs" id="christina">Shazam</a></li>
             <li><a href="nicole.ejs" id="nicole">Spotify</a>
             <li><a href="john.ejs" id="john">Itunes</a></li>   
-            <li><a href="zach.ejs" id="zach">Youtube</a></li>   
+            <li><a href="zach.ejs" id="zach">Deezer</a></li>   
         </div>
         
         
-        <h1 class="Headers" id="adb-header">ADB API </h1>
+        <h1 class="Headers" id="adb-header">Deezer API </h1>
       
         <p>Zach Output.</p>
         <ul>
@@ -20,7 +20,7 @@
                     <span><%= results[i].songDetails.title %><br></span>
                     <span><%= results[i].songDetails.artist %><br></span>
                     <span><%= results[i].songDetails.album %><br></span>
-                    <span><%= results[i].songDetails.albumCover %><br></span>
+                    <img src = '<%= results[i].songDetails.albumCover %>'/>
                     
                     
                 </li>
