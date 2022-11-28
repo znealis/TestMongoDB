@@ -35,12 +35,12 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
             })
                 app.get('/zach.ejs', (req, res) => {
                     db.collection('newdata').aggregate([{$unwind: '$topCharts.data'},
-                    {$match: {'topCharts.data.title' : "God's Plan"}},
+                    {$match: {'topCharts.data.artist.name' : "Drake"}},
                     {$group: {'_id': null, 'songDetails': {$push:{
                         'title': '$topCharts.data.title',
                         'artist': '$topCharts.data.artist.name',
                         'album': '$topCharts.data.album.title',
-                        'albumCover': '$topCharts.data.album.cover',
+                        'albumCover': '$topCharts.data.album.cover_medium',
                         'preview': '$topCharts.data.preview', 
                         'Link': '$topCharts.data.link',
                         'mediumPicture': '$topCharts.data.artist.picture_medium'}}
