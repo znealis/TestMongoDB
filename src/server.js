@@ -6,7 +6,7 @@ const fs = require('fs');
 
 
 const uri = "mongodb+srv://AdminUser:Asd123asd@capstoneproject.xbu68gm.mongodb.net/?retryWrites=true&w=majority";
-let storeData = [];
+
 MongoClient.connect(uri, { useUnifiedTopology: true})
     .then(client => {
         console.log('Connected to Database')
@@ -35,7 +35,7 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
             })
                 app.get('/zach.ejs', (req, res) => {
                     db.collection('newdata').aggregate([{$unwind: '$topCharts.data'},
-                    {$match: {'topCharts.data.artist.name' : "Drake"}},
+                    {$match: {'topCharts.data.readable' : true}},
                     {$group: {'_id': null, 'songDetails': {$push:{
                         'title': '$topCharts.data.title',
                         'artist': '$topCharts.data.artist.name',
