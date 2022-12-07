@@ -29,7 +29,7 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
 
         app.get('/nicole.ejs', (req, res) => {
             db.collection('newdata').aggregate([{$unwind: '$topCharts3.album'},
-            {$match: {'topCharts3.album.readable' : true}},
+            // {$match: {'topCharts3.album.readable' : true}},
             {$group: {'_id': null, 'songDetails': {$push:{
                 'title': '$topCharts3.album.title',
                 'artist': '$topCharts3.album.strArtist',
