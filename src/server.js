@@ -28,7 +28,26 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
 
 
         app.get('/nicole.ejs', (req, res) => {
-            res.render('nicole.ejs')
+            db.collection('newdata').aggregate([{$unwind: '$topCharts3.album'},
+            {$match: {'topCharts3.album.readable' : true}},
+            {$group: {'_id': null, 'songDetails': {$push:{
+                'title': '$topCharts3.album.title',
+                'artist': '$topCharts3.album.strArtist',
+                'album': '$topCharts3.album.album.title',
+                'albumCover': '$topCharts3.album.album.cover_medium',
+                'preview': '$topCharts3.album.preview', 
+                'Link': '$topCharts3.album.link',
+                'mediumPicture': '$topCharts3.album.artist.picture_medium'}}
+            }},
+            {$project:{
+                'songDetails' : 1,
+                '_id': 0,
+            }}]).toArray()
+
+            .then(results => {
+                console.log(unwind(results, 'songDetails'))
+                res.render('nicole.ejs', {results: unwind(results, 'songDetails')})
+            }) 
         })
             app.get('/john.ejs', (req, res) => {
                 res.render('john.ejs')
