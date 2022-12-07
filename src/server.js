@@ -34,10 +34,8 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
                 'title': '$topCharts3.album.title',
                 'artist': '$topCharts3.album.strArtist',
                 'album': '$topCharts3.album.strAlbum.title',
-                'albumCover': '$topCharts3.album.strAlbumThumb',
-                'preview': '$topCharts3.album.preview', 
-                'Link': '$topCharts3.album.link',
-                'mediumPicture': '$topCharts3.album.artist.picture_medium'}}
+                'albumCover': '$topCharts3.album.strAlbumThumb'
+                }}
             }},
             {$project:{
                 'songDetails' : 1,
