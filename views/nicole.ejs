@@ -170,13 +170,13 @@
         <div class="navbarContainer" id="navbarContainer">
             <li><a class="active" href="/" id="Home">Home</a></li>
             <li><a href="christina.ejs" id="christina">Shazam</a></li>
-            <li><a href="nicole.ejs" id="nicole">Spotify</a>
+            <li><a href="nicole.ejs" id="nicole">AudioDB</a>
             <li><a href="john.ejs" id="john">Itunes</a></li>   
             <li><a href="zach.ejs" id="zach">Deezer</a></li>   
         </div>
         
         
-        <h1 class="Headers" id="adb-header">Top 3 Tracks</h1>
+        <h1 class="Headers" id="adb-header">Top 10 Daft Punk Albums</h1>
       
           <div class = "grid-container">
                 
@@ -185,13 +185,15 @@
                         <li class = "list-fix">
 
                             <div class="img-container">
-                                <img src = '<%= results[i].songDetails.albumCover %>'/>
+                                <img src = '<%= results[i].songDetails1.albumCover %>'/>
                                 <div class="details">
-                                    <div class="text"><%= results[i].songDetails.title %><br></div>
-                                    <div><%= results[i].songDetails.artist %><br></div>
-                                    <div><%= results[i].songDetails.album %><br></div>
+                                    <div class="text"><%= results[i].songDetails1.Genre %><br></div>
+                                    <div><%= results[i].songDetails1.artist %><br></div>
+                                    <div><%= results[i].songDetails1.album %><br></div>
                                 </div>
                             </div>
+                        </li>
+                        <%} %>
 
    
      
