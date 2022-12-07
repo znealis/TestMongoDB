@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient
 const unwind = require('javascript-unwind');
+var path = require('path');
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -13,6 +14,8 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
         const db = client.db('test')
 
         app.set('view ejs', 'ejs')
+
+        app.use(express.static(path.join(__dirname,'assets')));
 
         app.get('/', (req, res) => {
             db.collection('newdata').aggregate([{ $unwind: '$results'},
