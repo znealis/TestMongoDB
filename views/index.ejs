@@ -66,8 +66,34 @@ a:link, a:visited {
     display: inline-block;
 }
 body{
-background: Black;
-color: white;
+animation: bg-animation 10s infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-color: red;
+  }
+  15% {
+    background-color: yellow;
+  }
+  30% {
+    background-color: green;
+  }
+  45% {
+    background-color: blue;
+  }
+  60% {
+    background-color: purple;
+  }
+  75% {
+    background-color: pink;
+  }
+  90% {
+    background-color: brown;
+  }
+  100% {
+    background-color: red;
+  }
 }
 
 .form{
