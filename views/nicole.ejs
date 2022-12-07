@@ -3,11 +3,12 @@
 <style>
     .Headers{
         color:#92A8D1;
-        justify-content:  center;
+        justify-content: center;
         align-items: center;
         text-align: center;
         font-size: 64px;
-        text-shadow: -1px -1px 0 white, 1px -1px 0 white,-1px 1px 0 white,1px 1px 0 white;      
+        font: Helvetica;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 grey,-1px 1px 0 white,1px 1px 0 grey;      
 
     }
     .image{
@@ -15,15 +16,15 @@
         }
     .grid-container {
         display: grid;
-        animation: bg-animation 10s infinite;
+        animation: bg-animation 500s infinite;
         height: 630px;
         height: 600px;
         grid-template-columns: auto auto auto auto;
         grid-template-rows: auto auto;
         overflow-y: scroll;
         }
-    .grid-contanier > div {
-        animation: bg-animation 10s infinite;
+    .grid-container > div {
+        background: radial-gradient(gold, white);
         padding: 20px;
         font-size: 20px;
         text-align: center;
@@ -58,10 +59,8 @@
     }
 
     body{
-        background-image: url(data:image/jpeg;base64,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);
-         background-repeat: repeat;
-        background-size:25%;
-        color: black;
+        background: radial-gradient(rgb(0, 162, 255), rgb(0, 153, 255), white);
+        background-size: 100%;
         text-shadow: -1px -1px 0 white, 1px -1px 0 gold,-1px 1px 0 gold,1px 1px 0 gold;
     }
     
@@ -78,7 +77,7 @@
         display: block;
         padding: 12px;
         text-align: center;
-        background-color: #111;
+        background-color: transparent;
         color:white;
     }
 
@@ -168,25 +167,6 @@
         margin: 0;
         padding: 0;
     }
-.Headers{
-    justify-content:  center;
-    align-items: center;
-    text-align: center;
-    font-size: 64px;
-    letter-spacing: 0.15rem;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: -4px 4px #ef3550,
-                -8px 8px #f48fb1,
-                -12px 12px #7e57c2,
-                -16px 16px #2196f3,
-                -20px 20px #26c6da,
-                -24px 24px #43a047,
-                -28px 28px #eeff41,
-                -32px 32px #f9a825,
-                -36px 36px #ff5722;
-
-}
 .grid-container {
     display: grid;
     height: 630px;
@@ -195,7 +175,7 @@
     padding: 10px;
     overflow-y: scroll;
 }
-.grid-contanier > div {
+.grid-container > div {
 
     padding: 20px;
     font-size: 20px;
@@ -230,9 +210,7 @@
         display: inline-block;
     }
 
-    body{
-        animation: bg-animation 10s infinite;
-    }
+
 
     @keyframes bg-animation {
     0% {
