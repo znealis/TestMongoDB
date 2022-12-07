@@ -1,169 +1,161 @@
 <!DOCTYPE HTML>
 <style>
-.Headers{
-    color:#92A8D1;
-    justify-content:  center;
-    align-items: center;
-    text-align: center;
-    font-size: 64px;
-    text-shadow: -1px -1px 0 white, 1px -1px 0 white,-1px 1px 0 white,1px 1px 0 white;
+    .Headers{
+        color:#92A8D1;
+        justify-content:  center;
+        align-items: center;
+        text-align: center;
+        font-size: 64px;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white,-1px 1px 0 white,1px 1px 0 white;
+    }
 
-}
-.grid-container {
-    display: grid;
-    height: 630px;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    padding: 10px;
-    overflow-y: scroll;
-}
-.grid-contanier > div {
-    background: radial-gradient(#993955, #E9ECF5);
-    color: white;
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-    
+    .grid-container {
+        display: grid;
+        height: 630px;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto;
+        padding: 10px;
+        overflow-y: scroll;
+    }
 
-}
+    .grid-contanier > div {
+        background: radial-gradient(#993955, #E9ECF5);
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;    
+    }
 
-footer {
-text-align: center;
-padding: 3px;
+    footer {
+        text-align: center;
+        padding: 3px;
+        color: white;
+        font-family:monaco;
+    }
 
-color: white;
-font-family:monaco;
+    a:link, a:visited {
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
 
-}
+    body{
+        background: radial-gradient(#993955, #E9ECF5);
+        color: white;
+    }
 
-a:link, a:visited {
+    .form{
+        padding: 8px;
+    }
 
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-body{
-background: radial-gradient(#993955, #E9ECF5);
-color: white;
-}
+    li{
+        float:left;
+    }
 
-.form{
-padding: 8px;
-}
+    .list-fix{
+        float: none;
+        display: block;
+        padding: 12px;
+        text-align: center;
+        /*background: radial-gradient(#993955, #E9ECF5);
+        color:white;*/
+        background: url(https://pngimg.com/uploads/bokeh/bokeh_PNG27.png);
+        background-size: cover;
+    }
 
-li{
-float:left;
-}
+    .img-container{
+        position: relative;
+    }
 
-.list-fix{
-float: none;
-display: block;
-padding: 12px;
-text-align: center;
-/*background: radial-gradient(#993955, #E9ECF5);
-color:white;*/
-background: url(https://pngimg.com/uploads/bokeh/bokeh_PNG27.png);
-background-size: cover;
-}
+    .img-container:hover img{
+        opacity: 0.3;
+    }
 
-.img-container{
-position: relative;
+    .details{
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
 
-}
+    .text{
+        font: 28px "Alternate Gothic";
+    }
 
-.img-container:hover img{
-opacity: 0.3;
-}
+    .img-container:hover .details{
+        opacity: 1;
+    }
 
-.details{
-transition: .5s ease;
-opacity: 0;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-text-align: center;
-}
+    img{
+        float: none;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        opacity: 1;
+        transition: .5 ease;
+        backface-visibility: hidden;
+    }
 
-.text{
-font: 28px "Alternate Gothic";
-}
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: monaco;
+    }
 
-.img-container:hover .details{
-opacity: 1;
-}
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
 
-img{
-float: none;
-display: block;
-margin-right: auto;
-margin-left: auto;
-opacity: 1;
-transition: .5 ease;
-backface-visibility: hidden;
-}
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    .navbarContainer{
+        font-family: monaco;
+        align-items: center; 
+        justify-content: center;
+        text-align: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
+    .linkButton{
+        background-color: red;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        font-size: large;
+        width: 200px;
+    }
 
-li a{
-display: block;
-color: white;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-family: monaco;
-}
-li a:hover:not(.active) {
-background-color: #111;
-}
-ul{
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-background-color: #333;
-}
-.navbarContainer{
-font-family: monaco;
-align-items: center; 
-justify-content: center;
-text-align: center;
-color:rgb(177, 225, 234);
-border-radius: 2px;
-cursor: pointer;
-transition: all linear 1s;
-height:45px; 
-list-style-type: none;
-margin: 0;
-padding: 0;
-
-
-}
-
-.linkButton{
-background-color: red;
-border-radius: 12px;
-text-align: center;
-color: white;
-font-size: large;
-width: 200px;
-
-}
-
-.navbarButton:hover{
-font-family: monaco;
-transition: all linear .5s;
-background: radial-gradient(#e66465, #9198e5);
-color:rgb(255, 255, 255);
-border-radius: 5%;
-list-style-type: none;
-margin: 0;
-padding: 0;
-
-
-}
+    .navbarButton:hover{
+        font-family: monaco;
+        transition: all linear .5s;
+        background: radial-gradient(#e66465, #9198e5);
+        color:rgb(255, 255, 255);
+        border-radius: 5%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 </style>
 
     <body>
@@ -177,45 +169,37 @@ padding: 0;
         <h1 class="Headers" id="itunes-header">Top 25 Best iTunes Songs</h1>
       
         <div class = "grid-container">
-                
-                    <% for(var i = 0; i < results.length; i++) {%>
-                        
-                        <li class = "list-fix">
-
-                            <div class="img-container">
-                                <img src = '<%= results[i].songz.albumCover %>'/>
-                                <div class="details">
-                                    <div class="text"><%= results[i].songz.title %><br></div>
-                                    <div><%= results[i].songz.artist %><br></div>
-                                    <div><%= results[i].songz.album %><br></div>
-                                </div>
-                            </div>
-
-                            <form class="form" action='<%= results[i].songz.Link %>' method="get" target="_blank">
-                                <button class= "linkButton" type="submit">Listen Here!</button>
-                            </form>
-                            
-                            
-                        </li>
-                    <%} %>
-                
+            <% for(var i = 0; i < results.length; i++) {%>    
+                <li class = "list-fix">
+                    <div class="img-container">
+                        <img src = '<%= results[i].songz.albumCover %>'/>
+                        <div class="details">
+                            <div class="text"><%= results[i].songz.title %><br></div>
+                            <div><%= results[i].songz.artist %><br></div>
+                            <div><%= results[i].songz.album %><br></div>
+                        </div>
+                    </div>
+                    <form class="form" action='<%= results[i].songz.Link %>' method="get" target="_blank">
+                        <button class= "linkButton" type="submit">Listen Here!</button>
+                    </form>          
+                </li>
+            <%} %>
          </div>
-   
     </body>
     <footer>
         <ul>
-        <li><img src="/Chris.JPG" />
-            <p>Christina Zimmer<br>
-            <a href="mailto:zimmer64students.rowan.edu">zimmer64@students.com</a></p></li>
-        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
-            <p>Nicole Amoah<br>
-            <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p></li>
-        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
-            <p>John Doyle<br>
-             <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p></li>
-        <li><img src="/ZachsImg.png" />
-            <p>Zachary Nealis<br>
-             <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p></li>
+            <li><img src="/Chris.JPG" />
+                <p>Christina Zimmer<br>
+                <a href="mailto:zimmer64students.rowan.edu">zimmer64@students.com</a></p></li>
+            <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+                <p>Nicole Amoah<br>
+                <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p></li>
+            <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+                <p>John Doyle<br>
+                <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p></li>
+            <li><img src="/ZachsImg.png" />
+                <p>Zachary Nealis<br>
+                <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p></li>
         </ul>
    </footer>
 </HTML>
