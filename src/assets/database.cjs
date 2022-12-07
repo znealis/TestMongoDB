@@ -18,26 +18,15 @@ async function connect() {
         await listDatabases(client);
         const db = client.db("test");
         const coll = db.collection("newdata");
-        const artistExample = coll.aggregate([{ $unwind: '$results'},
-                                                {$match: {'results.artistName' : 'Hannah Montana'}},
-                                                {$project: {'_id': 0, 'results.artistName': 1, 'results.trackName': 1,}}]);
+        const artistExample = coll.aggregate([{$unwind: '$topCharts1.tracks.hits'},
+                                            {$match: {'topCharts1.tracks.hits.track.type' : "MUSIC"}},
+                                        {$group: {'_id': null, 'songDetails': {$push:{'artist': '$topCharts1.tracks.hits.track.subtitle'}}}},
+                                        {$project:{
+                                            'songDetails' : 1,
+                                            '_id': 0,
+    }}]);
 
-        const searchBySong = coll.aggregate([{$unwind: '$topCharts.data'},
-                                                {$match: {'topCharts.data.title' : "God's Plan"}},
-                                                {$group: {'_id': null, 'songDetails': {$push:{
-                                                    'title': '$topCharts.data.title',
-                                                    'artist': '$topCharts.data.artist.name',
-                                                    'album': '$topCharts.data.album.title',
-                                                    'albumCover': '$topCharts.data.album.cover',
-                                                    'preview': '$topCharts.data.preview', 
-                                                    'Link': '$topCharts.data.link',
-                                                    'mediumPicture': '$topCharts.data.artist.picture_medium'}}
-                                                }},
-                                                {$project:{
-                                                    'songDetails' : 1,
-                                                    '_id': 0,
-                                                }}
-                                            ]);
+    
      
 
 
