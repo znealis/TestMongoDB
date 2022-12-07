@@ -2,12 +2,22 @@
 
 <style>
 .Headers{
-    color:#92A8D1;
     justify-content:  center;
     align-items: center;
     text-align: center;
     font-size: 64px;
-    text-shadow: -1px -1px 0 white, 1px -1px 0 white,-1px 1px 0 white,1px 1px 0 white;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                -8px 8px #f48fb1,
+                -12px 12px #7e57c2,
+                -16px 16px #2196f3,
+                -20px 20px #26c6da,
+                -24px 24px #43a047,
+                -28px 28px #eeff41,
+                -32px 32px #f9a825,
+                -36px 36px #ff5722;
 
 }
 .grid-container {
@@ -30,9 +40,20 @@
 footer {
 text-align: center;
 padding: 3px;
-
+flex-direction: row;
 color: white;
 font-family:monaco;
+align-items: center; 
+justify-content: center;
+color:rgb(177, 225, 234);
+border-radius: 2px;
+cursor: pointer;
+transition: all linear 1s;
+height:45px; 
+list-style-type: none;
+margin: 0;
+padding: 0;
+
 
 }
 
@@ -45,8 +66,34 @@ a:link, a:visited {
     display: inline-block;
 }
 body{
-background: radial-gradient(#993955, #E9ECF5);
-color: white;
+animation: bg-animation 10s infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-color: red;
+  }
+  15% {
+    background-color: yellow;
+  }
+  30% {
+    background-color: green;
+  }
+  45% {
+    background-color: blue;
+  }
+  60% {
+    background-color: purple;
+  }
+  75% {
+    background-color: pink;
+  }
+  90% {
+    background-color: brown;
+  }
+  100% {
+    background-color: red;
+  }
 }
 
 .form{
@@ -95,13 +142,9 @@ opacity: 1;
 }
 
 img{
-float: none;
-display: block;
-margin-right: auto;
-margin-left: auto;
-opacity: 1;
-transition: .5 ease;
-backface-visibility: hidden;
+    padding-top: 100px;
+    width: 225px;
+    height: 200px;
 }
 
 
@@ -118,10 +161,10 @@ background-color: #111;
 }
 ul{
 list-style-type: none;
+justify-content: center;
 margin: 0;
-padding: 0;
+padding-left: 300px;
 overflow: hidden;
-background-color: #333;
 }
 .navbarContainer{
 font-family: monaco;
@@ -175,19 +218,33 @@ padding: 0;
         
         
         <h1 class="Headers" id="adb-header">Capstone Project </h1>
+
+        <div class="grid-container">
+            <img src = 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'/>
+            
+            <div class = "grid-container">
+                <p> This project is a collaboration designed to hilight musical trends in the industry. We pulled data from the top artists and the lists, making it conviently accessible through each page. Just click the link button to discover!</p>
+            </div>
+        </div>>
       
       
         
 
     </body>
     <footer>
-        <p>Christina Zimmer<br>
-            <a href="mailto:zimmer64students.rowan.edu">zimmer64@students.com</a></p>
-        <p>Nicole Amoah<br>
-            <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p>
-        <p>John Doyle<br>
-             <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p>
-        <p>Zachary Nealis<br>
-             <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p>
+        <ul>
+        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+            <p>Christina Zimmer<br>
+            <a href="mailto:zimmer64students.rowan.edu">zimmer64@students.com</a></p></li>
+        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+            <p>Nicole Amoah<br>
+            <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p></li>
+        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+            <p>John Doyle<br>
+             <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p></li>
+        <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
+            <p>Zachary Nealis<br>
+             <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p></li>
+        </ul>
    </footer>
 </HTML>

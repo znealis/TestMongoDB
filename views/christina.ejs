@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 
 <style>
-        
-    .Headers{
+     .Headers{
         color:#92A8D1;
         justify-content:  center;
         align-items: center;
@@ -13,18 +12,19 @@
     }
     .grid-container {
         display: grid;
-        color: white;
         height: 630px;
         grid-template-columns: auto auto auto auto;
         grid-template-rows: auto auto;
         padding: 10px;
         overflow-y: scroll;
+          
     }
     .grid-contanier > div {
-        color: white;
+  
         padding: 20px;
         font-size: 20px;
         text-align: center;
+        flex-direction: column;
         
 
     }
@@ -45,6 +45,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
+        background: radial-gradient(#993955, #E9ECF5);
     }
     body{
     background: radial-gradient(#993955, #E9ECF5);
@@ -53,12 +54,11 @@
 
 .form{
     padding: 8px;
-    color: white;
 }
 
 li{
     float:left;
-    color: white;
+    background: radial-gradient(#993955, #E9ECF5);
 }
 
 .list-fix{
@@ -66,8 +66,7 @@ li{
     display: block;
     padding: 12px;
     text-align: center;
-    background-color: #111;
-    color:white;
+    background: radial-gradient(#993955, #E9ECF5);
 }
 
 .img-container{
@@ -84,7 +83,6 @@ li{
     opacity: 0;
     position: absolute;
     top: 50%;
-    color: white;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -93,7 +91,6 @@ li{
 
 .text{
     font: 28px "Alternate Gothic";
-    color: white;
 }
 
 .img-container:hover .details{
@@ -107,7 +104,6 @@ img{
     margin-left: auto;
     opacity: 1;
     transition: .5 ease;
-    color: white;
     backface-visibility: hidden;
 }
 
@@ -118,19 +114,20 @@ li a{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    background: radial-gradient(#993955, #E9ECF5);
     font-family: monaco;
 }
 li a:hover:not(.active) {
     background-color: #111;
-    color: white;
+    
 }
 ul{
     list-style-type: none;
+    background: radial-gradient(#993955, #E9ECF5);
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    color: white;
 }
 .navbarContainer{
     font-family: monaco;
@@ -189,29 +186,28 @@ ul{
       
         <div class = "grid-container">
                 
-                    <% for(var i = 0; i < results.length; i++) {%>
-                        
-                        <li class = "list-fix">
-
-                            <div class="img-container">
-                                <img src = '<%= results[i].songData.album %>'/>
-                                    <div class="text" style="color: white; background-color: blue">
-                                    <%= results[i].songData.title %><br>
-                                    <div><%= results[i].songData.artist %><br></div>
-                                    <div><%= results[i].songData.album %><br></div>
-                                    </div>
-                               
-                                </div>
-                            </div>
-
-                            <form class="form" action='<%= results[i].songData.Link %>' method="get" target="_blank">
-                                <button class= "linkButton" type="submit">Listen Here!</button>
-                            </form>
-                            
-                        </li>
-                    <%} %>
+            <% for(var i = 0; i < results.length; i++) {%>
                 
-         </div>
+                <li class = "list-fix">
+
+                    <div class="img-container">
+                        <img src = '<%= results[i].songData.album %>'/>
+                        <div class="details">
+                            <div class="text"><%= results[i].songData.title %><br></div>
+                            <div><%= results[i].songData.artist %><br></div>
+                            <div><%= results[i].songData.album %><br></div>
+                        </div>
+                    </div>
+
+                    <form class="form" action='<%= results[i].songData.Link %>' method="get" target="_blank">
+                        <button class= "linkButton" type="submit">Listen Here!</button>
+                    </form>
+                    
+                    
+                </li>
+            <%} %>
+        
+ </div>
     </body>
     <footer>
         <p>Christina Zimmer<br>
