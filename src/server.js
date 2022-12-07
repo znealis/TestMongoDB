@@ -32,22 +32,22 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
 
         app.get('/nicole.ejs', (req, res) => {
             db.collection('newdata').aggregate([{$unwind: '$topCharts3.album'},
-             {$match: {'topCharts3.album.strReleaseFormat' : 'Album'}},
-            {$group: {'_id': null, 'songDetails': {$push:{
-                'title': '$topCharts3.album.title',
-                'artist': '$topCharts3.album.strArtist',
-                'album': '$topCharts3.album.strAlbum.title',
-                'albumCover': '$topCharts3.album.strAlbumThumb'
-                }}
-            }},
-            {$project:{
-                'songDetails' : 1,
-                '_id': 0,
-            }}]).toArray()
+            {$match: {'topCharts3.album.strReleaseFormat' : 'Album'}},
+           {$group: {'_id': null, 'songDetails1': {$push:{
+               'Genre': '$topCharts3.album.strGenre',
+               'artist': '$topCharts3.album.strArtist',
+               'album': '$topCharts3.album.strAlbum',
+               'albumCover': '$topCharts3.album.strAlbumThumb'
+               }}
+           }},
+           {$project:{
+               'songDetails1' : 1,
+               '_id': 0,
+           }}]).toArray()
 
             .then(results => {
-                console.log(unwind(results, 'songDetails'))
-                res.render('nicole.ejs', {results: unwind(results, 'songDetails')})
+                console.log(unwind(results, 'songDetails1'))
+                res.render('nicole.ejs', {results: unwind(results, 'songDetails1')})
             }) 
         })
             app.get('/john.ejs', (req, res) => {
