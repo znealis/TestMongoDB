@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 
 <style>
-        
-    .Headers{
+     .Headers{
         color:#92A8D1;
         justify-content:  center;
         align-items: center;
@@ -18,12 +17,14 @@
         grid-template-rows: auto auto;
         padding: 10px;
         overflow-y: scroll;
+          
     }
     .grid-contanier > div {
   
         padding: 20px;
         font-size: 20px;
         text-align: center;
+        flex-direction: column;
         
 
     }
@@ -44,6 +45,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
+        background: radial-gradient(#993955, #E9ECF5);
     }
     body{
     background: radial-gradient(#993955, #E9ECF5);
@@ -56,6 +58,7 @@
 
 li{
     float:left;
+    background: radial-gradient(#993955, #E9ECF5);
 }
 
 .list-fix{
@@ -63,8 +66,7 @@ li{
     display: block;
     padding: 12px;
     text-align: center;
-    background-color: #111;
-    color:white;
+    background: radial-gradient(#993955, #E9ECF5);
 }
 
 .img-container{
@@ -112,13 +114,16 @@ li a{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    background: radial-gradient(#993955, #E9ECF5);
     font-family: monaco;
 }
 li a:hover:not(.active) {
     background-color: #111;
+    
 }
 ul{
     list-style-type: none;
+    background: radial-gradient(#993955, #E9ECF5);
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -181,25 +186,28 @@ ul{
       
         <div class = "grid-container">
                 
-                    <% for(var i = 0; i < results.length; i++) {%>
-                        
-                        <li class = "list-fix">
-
-                            <div class="img-container">
-                                <div class="details">
-                                    <div class="text"><%= results[i].songData.title %><br></div>
-                                    <div><%= results[i].songData.artist %><br></div>
-                               
-                                </div>
-                            </div>
-
-                           
-                            
-                            
-                        </li>
-                    <%} %>
+            <% for(var i = 0; i < results.length; i++) {%>
                 
-         </div>
+                <li class = "list-fix">
+
+                    <div class="img-container">
+                        <img src = '<%= results[i].songData.album %>'/>
+                        <div class="details">
+                            <div class="text"><%= results[i].songData.title %><br></div>
+                            <div><%= results[i].songData.artist %><br></div>
+                            <div><%= results[i].songData.album %><br></div>
+                        </div>
+                    </div>
+
+                    <form class="form" action='<%= results[i].songData.Link %>' method="get" target="_blank">
+                        <button class= "linkButton" type="submit">Listen Here!</button>
+                    </form>
+                    
+                    
+                </li>
+            <%} %>
+        
+ </div>
     </body>
     <footer>
         <p>Christina Zimmer<br>

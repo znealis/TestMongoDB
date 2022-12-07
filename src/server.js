@@ -28,7 +28,24 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
 
 
         app.get('/nicole.ejs', (req, res) => {
-            res.render('nicole.ejs')
+            db.collection('newdata').aggregate([{$unwind: '$topCharts3.album'},
+            {$match: {'topCharts3.album.readable' : true}},
+            {$group: {'_id': null, 'songDetails': {$push:{
+                'title': '$topCharts3.album.title',
+                'artist': '$topCharts3.album.strArtist',
+                'album': '$topCharts3.album.strAlbum.title',
+                'albumCover': '$topCharts3.album.strAlbumThumb'
+                }}
+            }},
+            {$project:{
+                'songDetails' : 1,
+                '_id': 0,
+            }}]).toArray()
+
+            .then(results => {
+                console.log(unwind(results, 'songDetails'))
+                res.render('nicole.ejs', {results: unwind(results, 'songDetails')})
+            }) 
         })
             app.get('/john.ejs', (req, res) => {
                 res.render('john.ejs')
@@ -53,13 +70,15 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
                     .then(results => {
                         console.log(unwind(results, 'songDetails'))
                         res.render('zach.ejs', {results: unwind(results, 'songDetails')})
-                    })
+                    }) 
                 })
 
                 app.get('/christina.ejs', (req, res) => {
-                    db.collection('newdata').aggregate([{ $unwind: '$topCharts1'},
-                    {$match: {'topCharts1.tracks.hits.track.subtitle' : 'Drake'}},
-                    {$group: {'_id': null, 'songData': {$push: {'artist': '$topCharts.tracks.hits.track.subtitle', 'track': '$topCharts1.tracks.hits.track.title'}}}},
+                    db.collection('newdata').aggregate([{ $unwind: '$topCharts1.tracks.hits'},
+                    {$match: {'topCharts1.tracks.hits.track.type' : 'MUSIC'}},
+                    {$group: {'_id': null, 'songData': {$push: {'artist': '$topCharts1.tracks.hits.track.subtitle', 'track': '$topCharts1.tracks.hits.track.title',
+                    'album' : '$topCharts1.tracks.hits.track.images.coverart', 'Link' : '$topCharts1.tracks.hits.track.url'
+                }}}},
                     {$project: {'_id': 0, 'songData': 1}}]).toArray()
         
         

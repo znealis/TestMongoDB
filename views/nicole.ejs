@@ -176,9 +176,23 @@
         </div>
         
         
-        <h1 class="Headers" id="adb-header">ADB API </h1>
+        <h1 class="Headers" id="adb-header">Top 3 Tracks</h1>
       
-        <p></p>
+          <div class = "grid-container">
+                
+                    <% for(var i = 0; i < results.length; i++) {%>
+                        
+                        <li class = "list-fix">
+
+                            <div class="img-container">
+                                <img src = '<%= results[i].songDetails.albumCover %>'/>
+                                <div class="details">
+                                    <div class="text"><%= results[i].songDetails.title %><br></div>
+                                    <div><%= results[i].songDetails.artist %><br></div>
+                                    <div><%= results[i].songDetails.album %><br></div>
+                                </div>
+                            </div>
+
    
      
     </body>
