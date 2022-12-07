@@ -48,7 +48,27 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
             }) 
         })
             app.get('/john.ejs', (req, res) => {
-                res.render('john.ejs')
+                //res.render('john.ejs')
+                db.collection('newdata').aggregate([{$unwind: '$topCharts2.results'},
+                    {$match: {'topCharts2.results.kind' : 'song'}},
+                    {$group: {'_id': null, 'songz': {$push:{
+                        'title': '$topCharts2.results.trackName',
+                        'artist': '$topCharts2.results.artistName',
+                        'album': '$topCharts2.results.collectionName',
+                        'albumCover': '$topCharts2.results.artworkUrl100', // picture
+                        'preview': '$topCharts2.results.previewUrl', ///picture
+                        'Link': '$topCharts2.results.previewUrl', // link
+                        'mediumPicture': '$topCharts2.results.artworkUrl60'}} // picture
+                    }},
+                    {$project:{
+                        'songz' : 1,
+                        '_id': 0,
+                    }}]).toArray()
+        
+                    .then(results => {
+                        console.log(unwind(results, 'songz'))
+                        res.render('john.ejs', {results: unwind(results, 'songz')})
+                    })
             })
                 app.get('/zach.ejs', (req, res) => {
                     db.collection('newdata').aggregate([{$unwind: '$topCharts.data'},
