@@ -1,38 +1,65 @@
 <!DOCTYPE HTML>
-<style>
 
+<style>
     .Headers{
-        color:#92A8D1;
         justify-content:  center;
         align-items: center;
         text-align: center;
         font-size: 64px;
-        text-shadow: -1px -1px 0 black, 1px -1px 0 grey,-1px 1px 0 white,1px 1px 0 white;
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: -4px 4px #ef3550,
+                    -8px 8px #f48fb1,
+                    -12px 12px #7e57c2,
+                    -16px 16px #2196f3,
+                    -20px 20px #26c6da,
+                    -24px 24px #43a047,
+                    -28px 28px #eeff41,
+                    -32px 32px #f9a825,
+                    -36px 36px #ff5722;
+
     }
+    .image{
+            min-width: 50vw;
+        }
     .grid-container {
         display: grid;
+        animation: bg-animation 10s infinite;
         height: 630px;
         grid-template-columns: auto auto auto auto;
         grid-template-rows: auto auto;
-        padding: 10px;
         overflow-y: scroll;
-    }
-
-    .grid-container > div {
+        }
+    .grid-contanier > div {
+        animation: bg-animation 10s infinite;
         padding: 20px;
         font-size: 20px;
         text-align: center;
+        min-height: 20vh;
+        min-height: 30vw;
     }
-    
+
     footer {
         text-align: center;
         padding: 3px;
-        color: grey;
+        flex-direction: row;
+        color: white;
         font-family:monaco;
+        align-items: center; 
+        justify-content: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
-    
+
     a:link, a:visited {
-        color: rgb(0, 60, 255);
+        color: white;
         padding: 14px 25px;
         text-align: center;
         text-decoration: none;
@@ -40,21 +67,44 @@
     }
 
     body{
-        background: radial-gradient(#394f99, #E9ECF5);
-        background-size:100%;
-        color: grey;
-        
-        
+        animation: bg-animation 10s infinite;
     }
-    
+
+    @keyframes bg-animation {
+    0% {
+        background-color: red;
+    }
+    15% {
+        background-color: yellow;
+    }
+    30% {
+        background-color: green;
+    }
+    45% {
+        background-color: blue;
+    }
+    60% {
+        background-color: purple;
+    }
+    75% {
+        background-color: pink;
+    }
+    90% {
+        background-color: brown;
+    }
+    100% {
+        background-color: red;
+    }
+    }
+
     .form{
         padding: 8px;
     }
-    
+
     li{
         float:left;
     }
-    
+
     .list-fix{
         float: none;
         display: block;
@@ -63,15 +113,15 @@
         background-color: #111;
         color:white;
     }
-    
+
     .img-container{
         position: relative;
     }
-    
+
     .img-container:hover img{
         opacity: 0.3;
     }
-    
+
     .details{
         transition: .5s ease;
         opacity: 0;
@@ -82,25 +132,22 @@
         -ms-transform: translate(-50%, -50%);
         text-align: center;
     }
-    
+
     .text{
         font: 28px "Alternate Gothic";
     }
-    
+
     .img-container:hover .details{
         opacity: 1;
     }
-    
+
     img{
-        float: none;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        opacity: 1;
-        transition: .5 ease;
-        backface-visibility: hidden;
+        padding-top: 100px;
+        width: 175px;
+        height: 225px;
     }
-    
+
+
     li a{
         display: block;
         color: white;
@@ -109,19 +156,16 @@
         text-decoration: none;
         font-family: monaco;
     }
-
     li a:hover:not(.active) {
         background-color: #111;
     }
-
     ul{
         list-style-type: none;
+        justify-content: center;
         margin: 0;
-        padding: 0;
+        padding-left: 300px;
         overflow: hidden;
-        background-color: #333;
     }
-
     .navbarContainer{
         font-family: monaco;
         align-items: center; 
@@ -136,7 +180,7 @@
         margin: 0;
         padding: 0;
     }
-    
+
     .linkButton{
         background-color: red;
         border-radius: 12px;
@@ -145,7 +189,7 @@
         font-size: large;
         width: 200px;
     }
-    
+
     .navbarButton:hover{
         font-family: monaco;
         transition: all linear .5s;
@@ -156,7 +200,203 @@
         margin: 0;
         padding: 0;
     }
-    </style>
+.Headers{
+    justify-content:  center;
+    align-items: center;
+    text-align: center;
+    font-size: 64px;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                -8px 8px #f48fb1,
+                -12px 12px #7e57c2,
+                -16px 16px #2196f3,
+                -20px 20px #26c6da,
+                -24px 24px #43a047,
+                -28px 28px #eeff41,
+                -32px 32px #f9a825,
+                -36px 36px #ff5722;
+
+}
+.grid-container {
+    display: grid;
+    height: 630px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    padding: 10px;
+    overflow-y: scroll;
+}
+.grid-contanier > div {
+
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    
+
+}
+
+    footer {
+        text-align: center;
+        padding: 3px;
+        flex-direction: row;
+        color: white;
+        font-family:monaco;
+        align-items: center; 
+        justify-content: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a:link, a:visited {
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    body{
+        animation: bg-animation 10s infinite;
+    }
+
+    @keyframes bg-animation {
+    0% {
+        background-color: red;
+    }
+    15% {
+        background-color: yellow;
+    }
+    30% {
+        background-color: green;
+    }
+    45% {
+        background-color: blue;
+    }
+    60% {
+        background-color: purple;
+    }
+    75% {
+        background-color: pink;
+    }
+    90% {
+        background-color: brown;
+    }
+    100% {
+        background-color: red;
+    }
+    }
+
+    .form{
+        padding: 8px;
+    }
+
+    li{
+        float:left;
+    }
+
+    .list-fix{
+        float: none;
+        display: block;
+        padding: 12px;
+        text-align: center;
+        background-color: #111;
+        color:white;
+    }
+
+    .img-container{
+        position: relative;
+    }
+
+    .img-container:hover img{
+        opacity: 0.3;
+    }
+
+    .details{
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .text{
+        font: 28px "Alternate Gothic";
+    }
+
+    .img-container:hover .details{
+        opacity: 1;
+    }
+
+    img{
+        padding-top: 100px;
+        width: 185px;
+        height: 200px;
+    }
+
+
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: monaco;
+    }
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+    ul{
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding-left: 300px;
+        overflow: hidden;
+    }
+    .navbarContainer{
+        font-family: monaco;
+        align-items: center; 
+        justify-content: center;
+        text-align: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .linkButton{
+        background-color: red;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        font-size: large;
+        width: 200px;
+    }
+
+    .navbarButton:hover{
+        font-family: monaco;
+        transition: all linear .5s;
+        background: radial-gradient(#e66465, #9198e5);
+        color:rgb(255, 255, 255);
+        border-radius: 5%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>
         <body>
             <div class="navbarContainer" id="navbarContainer">
                 <li><a class="active" href="/" id="Home">Home</a></li>
@@ -189,21 +429,6 @@
     
         
         </body>
-        <footer>
-            <ul>
-                <li><img src="/Chris.JPG" />
-                    <p>Christina Zimmer<br>
-                    <a href="mailto:zimmer64students.rowan.edu">zimmer64@students.com</a></p></li>
-                <li><img src="/NicoleIMG.jpg" />
-                    <p>Nicole Amoah<br>
-                    <a href="mailto:amoahn86@students.rowan.edu">amoahn86@students.rowan.edu</a></p></li>
-                <li><img src="https://i.pinimg.com/736x/1d/82/de/1d82de69ad47ef9c9d8103a3fcbb57ec.jpg" />
-                    <p>John Doyle<br>
-                    <a href="mailto:doylej82@students.rowan.edu">doylej82@students.rowan.edu</a></p></li>
-                <li><img src="/ZachsImg.png" />
-                    <p>Zachary Nealis<br>
-                    <a href="mailto:nealisz9@students.rowan.edu">nealisz9@students.rowan.edu</a></p></li>
-            </ul>
-    </footer>
+
    </div>
 </HTML>
