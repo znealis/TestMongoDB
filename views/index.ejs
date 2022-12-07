@@ -200,6 +200,202 @@
         margin: 0;
         padding: 0;
     }
+.Headers{
+    justify-content:  center;
+    align-items: center;
+    text-align: center;
+    font-size: 64px;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                -8px 8px #f48fb1,
+                -12px 12px #7e57c2,
+                -16px 16px #2196f3,
+                -20px 20px #26c6da,
+                -24px 24px #43a047,
+                -28px 28px #eeff41,
+                -32px 32px #f9a825,
+                -36px 36px #ff5722;
+
+}
+.grid-container {
+    display: grid;
+    height: 630px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    padding: 10px;
+    overflow-y: scroll;
+}
+.grid-contanier > div {
+
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    
+
+}
+
+    footer {
+        text-align: center;
+        padding: 3px;
+        flex-direction: row;
+        color: white;
+        font-family:monaco;
+        align-items: center; 
+        justify-content: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a:link, a:visited {
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    body{
+        animation: bg-animation 10s infinite;
+    }
+
+    @keyframes bg-animation {
+    0% {
+        background-color: red;
+    }
+    15% {
+        background-color: yellow;
+    }
+    30% {
+        background-color: green;
+    }
+    45% {
+        background-color: blue;
+    }
+    60% {
+        background-color: purple;
+    }
+    75% {
+        background-color: pink;
+    }
+    90% {
+        background-color: brown;
+    }
+    100% {
+        background-color: red;
+    }
+    }
+
+    .form{
+        padding: 8px;
+    }
+
+    li{
+        float:left;
+    }
+
+    .list-fix{
+        float: none;
+        display: block;
+        padding: 12px;
+        text-align: center;
+        background-color: #111;
+        color:white;
+    }
+
+    .img-container{
+        position: relative;
+    }
+
+    .img-container:hover img{
+        opacity: 0.3;
+    }
+
+    .details{
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .text{
+        font: 28px "Alternate Gothic";
+    }
+
+    .img-container:hover .details{
+        opacity: 1;
+    }
+
+    img{
+        padding-top: 100px;
+        width: 185px;
+        height: 200px;
+    }
+
+
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: monaco;
+    }
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+    ul{
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding-left: 300px;
+        overflow: hidden;
+    }
+    .navbarContainer{
+        font-family: monaco;
+        align-items: center; 
+        justify-content: center;
+        text-align: center;
+        color:rgb(177, 225, 234);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all linear 1s;
+        height:45px; 
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .linkButton{
+        background-color: red;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        font-size: large;
+        width: 200px;
+    }
+
+    .navbarButton:hover{
+        font-family: monaco;
+        transition: all linear .5s;
+        background: radial-gradient(#e66465, #9198e5);
+        color:rgb(255, 255, 255);
+        border-radius: 5%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 </style>
 
     <body>
@@ -221,7 +417,7 @@
             <p style="min-height: 20vh; animation: bg-animation 10s infinite; font-size: 25px; font-family: monaco; padding: 2%; color:white;"> This project is a collaboration designed to hilight musical trends in the industry. We pulled data from the top artists and the lists, making it conviently accessible through each page. Our project hilights top musical artists such as Drake, Daft Punk, and Itunes' Top Music. Just click the link button to discover!</p>
         </div>
     </body>
-    
+
     <footer>
         <ul>
         <li><img src="/Chris.JPG" />
