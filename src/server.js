@@ -53,13 +53,15 @@ MongoClient.connect(uri, { useUnifiedTopology: true})
                     .then(results => {
                         console.log(unwind(results, 'songDetails'))
                         res.render('zach.ejs', {results: unwind(results, 'songDetails')})
-                    })
+                    }) 
                 })
 
                 app.get('/christina.ejs', (req, res) => {
-                    db.collection('newdata').aggregate([{ $unwind: '$topCharts1'},
-                    {$match: {'topCharts1.tracks.hits.track.subtitle' : 'Drake'}},
-                    {$group: {'_id': null, 'songData': {$push: {'artist': '$topCharts.tracks.hits.track.subtitle', 'track': '$topCharts1.tracks.hits.track.title'}}}},
+                    db.collection('newdata').aggregate([{ $unwind: '$topCharts1.tracks.hits'},
+                    {$match: {'topCharts1.tracks.hits.track.type' : 'MUSIC'}},
+                    {$group: {'_id': null, 'songData': {$push: {'artist': '$topCharts1.tracks.hits.track.subtitle', 'track': '$topCharts1.tracks.hits.track.title',
+                    'album' : '$topCharts1.tracks.hits.track.images.coverart', 'Link' : '$topCharts1.tracks.hits.track.url'
+                }}}},
                     {$project: {'_id': 0, 'songData': 1}}]).toArray()
         
         
